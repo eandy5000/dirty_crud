@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Lions</title>
+    <link rel="stylesheet" href="./vendors/bootstrap.css">
+</head>
+<body ng-controller="formCtrl">
+<h1>Lions</h1>
+<div class="row">
+  <div class="col-md-4">
+    <hr>
+    <form  ng-submit="addLion()" name="addForm">
+        <h2>Add Lion</h2>
+        <h3>Name:</h3>
+        <input type="text" name="name" ng-model="formData.name">
+        <h3>Pride:</h3>
+        <input type="text" name="pride" ng-model="formData.pride">
+        <h3>Age:</h3>
+        <input type="text" name="age" ng-model="formData.age">
+        <input type="submit" value="Add Lion">
+
+    </form>
+</div>
+<div class="col-md-4">
+  <hr>
+  <form  name="editForm" ng-submit="editLion()">
+      <h2>Edit Lion</h2>
+      <h3>Id: (must select id to edit)</h3>
+      <input type="text" name="name" ng-model="editData.id">
+      <h3>Name:</h3>
+      <input type="text" name="name" ng-model="editData.name">
+      <h3>Pride:</h3>
+      <input type="text" name="pride" ng-model="editData.pride">
+      <h3>Age:</h3>
+      <input type="text" name="age" ng-model="editData.age">
+      <input type="submit" value="Edit Lion">
+
+  </form>
+</div>
+<div class="col-md-4">
+  <hr>
+  <form name="deleteForm" ng-submit="deleteLion()">
+      <h2>Delete Lion</h2>
+      <h3>Id:</h3>
+      <input type="text" name="id" ng-model="deleteData.id">
+      <input type="submit" value="Delete Lion">
+
+  </form>
+</div>
+</div>
+    <hr>
+    <div>
+        <h2>Lion Display</h2>
+        <button ng-click="getLion()">See Lions</button>
+        <div ng-repeat = "out in outs">
+          <h3>Name: {{out.name}}</h3>
+          <ul>
+            <li>Pride: {{out.pride}}</li>
+            <li>Age: {{out.age}}</li>
+            <li>Id: {{out.id}}</li>
+          </ul>
+        </div>
+    </div>
+
+
+<script src="./vendors/angular.js"></script>
+<script src="./scripts/app.js"></script>
+</body>
+</html>
